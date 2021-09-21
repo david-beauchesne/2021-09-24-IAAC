@@ -1,12 +1,12 @@
 # source('./code/stl.R')
 library(slmeta)
 library(ceanav)
-data(aoi_studyarea)
-tc <- studyarea
+data(aoi)
+tc <- aoi
 library(nceadfo)
 data(aoi)
 scotian <- aoi[1, ]
-nfl <- aoi[2, ]
+# nfl <- aoi[2, ]
 
 ### Colors
 stl    <- '#68908b'
@@ -57,30 +57,30 @@ plotEGSL(layers = c('scotian','egslOutline','quebec'),
          prjCol     = NULL)
 dev.off()
 
-png('./Figures/newfoundland-labrador.png', res = 250, width = 120, height = 150, units = "mm")
-plotEGSL(layers = c('nfl','scotian','egslOutline','quebec'),
-         prj        = slmetaPrj('default'),
-         extent     = ext,
-         cols       = c(stl, off, off, focus),
-         borders    = border,
-         lwds       = 1.25,
-         mar        = c(0,0,0,0),
-         box        = FALSE,
-         axes       = NULL,
-         background = bg,
-         graticules = NULL,
-         scale      = FALSE,
-         northArrow = FALSE,
-         prjText    = FALSE,
-         prjCol     = NULL)
-dev.off()
+# png('./Figures/newfoundland-labrador.png', res = 250, width = 120, height = 150, units = "mm")
+# plotEGSL(layers = c('nfl','scotian','egslOutline','quebec'),
+#          prj        = slmetaPrj('default'),
+#          extent     = ext,
+#          cols       = c(stl, off, off, focus),
+#          borders    = border,
+#          lwds       = 1.25,
+#          mar        = c(0,0,0,0),
+#          box        = FALSE,
+#          axes       = NULL,
+#          background = bg,
+#          graticules = NULL,
+#          scale      = FALSE,
+#          northArrow = FALSE,
+#          prjText    = FALSE,
+#          prjCol     = NULL)
+# dev.off()
 
 
 png('./Figures/tc.png', res = 250, width = 120, height = 150, units = "mm")
-plotEGSL(layers = c('nfl','scotian','egslOutline','quebec','tc'),
+plotEGSL(layers = c('scotian','egslOutline','quebec','tc'),
          prj        = slmetaPrj('default'),
          extent     = ext,
-         cols       = c(off,off,off,focus, stl),
+         cols       = c(off,off,focus, stl),
          borders    = border,
          lwds       = 1.25,
          mar        = c(0,0,0,0),
